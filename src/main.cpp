@@ -58,5 +58,5 @@ void loop()
     value /= 10;
     Serial.println(value);
 
-    servo.write(value * .7);
+    servo.write(value);
 }
