@@ -20,6 +20,7 @@
  * SOFTWARE.
  */
 
+#include <Arduino.h>
 #include <Adafruit_MPU6050.h>
 #include <Adafruit_Sensor.h>
 #include <PID_v1.h>
@@ -32,7 +33,8 @@
 
 #include <debug.h>
 
-#include <EEPROM_Helper.h>
+#include <Database.h>
+#include <args.h>
 
 Servo servoWing, servoTail;
 Adafruit_MPU6050 mpu;
@@ -74,7 +76,7 @@ enum pid_t : uint8_t
 
 pid_t currentEdition;
 
-Args *explode(String data, char delimiter);
+auto explode(String data, char delimiter) -> Args*;
 void translate(Args *args);
 void save();
 void load();
